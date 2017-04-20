@@ -7,6 +7,6 @@
         public float InterestRate { get; set; }
         public int Amount { get; set; }
         public int CommitedAmount { get; set; }
-        public float Yeild { get; set; }
+        public float Yield { get; set; }
     }
 }

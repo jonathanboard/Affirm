@@ -94,7 +94,7 @@ namespace BalanceTheBooks.Service.Repository
 
                 foreach(var facility in facilities)
                 {
-                    writer.WriteLine(string.Format(YEILD_TEMPLATE, facility.Id, Math.Round(facility.Yeild, MidpointRounding.AwayFromZero)));
+                    writer.WriteLine(string.Format(YEILD_TEMPLATE, facility.Id, Math.Round(facility.Yield, MidpointRounding.AwayFromZero)));
                 }
                 writer.Flush();
                 writer.Close();

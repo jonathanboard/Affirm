@@ -6,6 +6,6 @@ namespace BalanceTheBooks.Service
     public interface IBalanceService
     {
         HttpStatusCode BalanceLoan(Loan loanData);
-        HttpStatusCode SaveYeilds();
+        HttpStatusCode SaveYields();
     }
 }

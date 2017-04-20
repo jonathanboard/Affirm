@@ -46,7 +46,7 @@ namespace BalanceTheBooks.Service
             return HttpStatusCode.OK;
         }
 
-        public HttpStatusCode SaveYeilds()
+        public HttpStatusCode SaveYields()
         {
             try
             {
@@ -62,28 +62,28 @@ namespace BalanceTheBooks.Service
 
         private bool matchFacility(List<Facility> creditFacilities, Loan loanData)
         {
-            var bestMatchYeild = 0f;
+            var bestMatchYield = 0f;
             Facility bestMatch = null;
 
             for (var i = 0; i < creditFacilities.Count(); i++)
             {
-                var loanYeild = getLoanYeild(creditFacilities[i], loanData);
-                if(bestMatchYeild < loanYeild)
+                var loanYield = getLoanYield(creditFacilities[i], loanData);
+                if(bestMatchYield <= loanYield)
                 {
-                    bestMatchYeild = loanYeild;
+                    bestMatchYield = loanYield;
                     bestMatch = creditFacilities[i];
                 }
             }
 
             bestMatch.CommitedAmount += loanData.Amount;
-            bestMatch.Yeild += bestMatchYeild;
+            bestMatch.Yield += bestMatchYield;
             
             loanData.CreditFacility = bestMatch;
 
-            return bestMatchYeild != 0f;
+            return bestMatchYield != 0f;
         }
 
-        private float getLoanYeild(Facility facility, Loan loanData)
+        private float getLoanYield(Facility facility, Loan loanData)
         {
             return (1.0f - loanData.DefaultLikelihoodOfDefault) * loanData.InterestRate * loanData.Amount
                 - loanData.DefaultLikelihoodOfDefault * loanData.Amount

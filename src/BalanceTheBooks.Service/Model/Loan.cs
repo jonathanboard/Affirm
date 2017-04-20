@@ -7,7 +7,7 @@
         public float InterestRate { get; set; }
         public float DefaultLikelihoodOfDefault { get; set; }
         public string OriginationState { get; set; }
-        public float LoanYeild { get; set; }
+        public float LoanYield { get; set; }
         public Facility CreditFacility { get; set; }
     }
 }
