@@ -54,7 +54,7 @@ namespace BalanceTheBooks.Service.Repository
                         float.TryParse(record[1], out maxDefualt);
                         long.TryParse(record[2], out bankId);
 
-                        returnVal.Add(new Covenant() { BankId = bankId, FacilityId = facilityId, MaxDefaultLikelihood = maxDefualt, BanndedState = record[3].Trim() });
+                        returnVal.Add(new Covenant() { BankId = bankId, FacilityId = facilityId, MaxDefaultLikelihood = maxDefualt, BannedState = record[3].Trim() });
                     }
                 }
             }

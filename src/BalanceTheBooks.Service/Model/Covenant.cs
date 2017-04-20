@@ -5,6 +5,6 @@
         public long BankId { get; set; }
         public long FacilityId { get; set; }
         public float MaxDefaultLikelihood { get; set; }
-        public string BanndedState { get; set; }
+        public string BannedState { get; set; }
     }
 }

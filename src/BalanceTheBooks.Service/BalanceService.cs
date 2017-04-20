@@ -75,7 +75,7 @@ namespace BalanceTheBooks.Service
                 }
             }
 
-            bestMatch.CommitedAmount += loanData.Amount;
+            bestMatch.CommittedAmount += loanData.Amount;
             bestMatch.Yield += bestMatchYield;
             
             loanData.CreditFacility = bestMatch;
@@ -92,12 +92,12 @@ namespace BalanceTheBooks.Service
 
         private List<Facility> getFilteredCreditFacilities(List<Facility> matchCreditFacilities, Loan loanData)
         {
-            return matchCreditFacilities.Where(cf => (cf.Amount - cf.CommitedAmount) >= loanData.Amount).ToList();
+            return matchCreditFacilities.Where(cf => (cf.Amount - cf.CommittedAmount) >= loanData.Amount).ToList();
         }
 
         private List<Covenant> getMatchingLoanCovenents(Loan targetLoan)
         {
-            return _covenants.Where(c => c.BanndedState.ToLower() != targetLoan.OriginationState.Trim().ToLower()
+            return _covenants.Where(c => c.BannedState.ToLower() != targetLoan.OriginationState.Trim().ToLower()
                 && c.MaxDefaultLikelihood >= targetLoan.DefaultLikelihoodOfDefault).ToList();
         }
 
