@@ -68,18 +68,22 @@ namespace BalanceTheBooks.Service
             for (var i = 0; i < creditFacilities.Count(); i++)
             {
                 var loanYield = getLoanYield(creditFacilities[i], loanData);
-                if(bestMatchYield <= loanYield)
+                
+                if(bestMatchYield < loanYield)
                 {
                     bestMatchYield = loanYield;
                     bestMatch = creditFacilities[i];
                 }
             }
 
-            bestMatch.CommittedAmount += loanData.Amount;
-            bestMatch.Yield += bestMatchYield;
-            
-            loanData.CreditFacility = bestMatch;
+            if (bestMatchYield > 0f)
+            {
+                bestMatch.CommittedAmount += loanData.Amount;
+                bestMatch.Yield += bestMatchYield;
 
+                loanData.CreditFacility = bestMatch;
+            }
+                      
             return bestMatchYield != 0f;
         }
 
