@@ -1,5 +1,4 @@
-﻿
-namespace BalanceTheBooks.Service.Model
+﻿namespace BalanceTheBooks.Service.Model
 {
     public class Covenant
     {

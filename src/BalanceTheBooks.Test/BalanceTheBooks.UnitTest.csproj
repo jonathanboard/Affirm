@@ -58,6 +58,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BalanceServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +67,12 @@
   <ItemGroup>
     <Folder Include="Model\" />
     <Folder Include="Repository\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BalanceTheBooks.Service\BalanceTheBooks.Service.csproj">
+      <Project>{d1884e18-12de-46ef-8eea-e241bb4604ad}</Project>
+      <Name>BalanceTheBooks.Service</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BalanceTheBooks.Service.Model;
 using System.IO;
 using CsvHelper;
@@ -49,7 +46,7 @@ namespace BalanceTheBooks.Service.Repository
                     var record = csvReader.CurrentRecord;
       
                     long bankId = 0;
-                    float maxDefualt = 0.0f;
+                    float maxDefualt = 1.0f;
                     long facilityId = 0;
 
                     if (long.TryParse(record[0], out facilityId))

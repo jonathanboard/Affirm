@@ -1,5 +1,4 @@
-﻿
-using BalanceTheBooks.Service.Repository;
+﻿using BalanceTheBooks.Service.Repository;
 using System.Configuration;
 using BalanceTheBooks.Service.Model;
 
@@ -10,7 +9,8 @@ namespace BalanceTheBooks.Service
         private ILoanRepository _repository;
 
         public LoanService()
-            :this(new LoanRepository(ConfigurationManager.AppSettings["loanFile"], ConfigurationManager.AppSettings["assignmentFile"]) )
+            :this(new LoanRepository(ConfigurationManager.AppSettings["loanFile"], 
+                ConfigurationManager.AppSettings["assignmentFile"]) )
         {
 
         }

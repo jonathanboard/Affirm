@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using BalanceTheBooks.Service.Model;
 using BalanceTheBooks.Service.Repository;
 using System.Configuration;
@@ -10,9 +8,9 @@ using System.Net;
 
 namespace BalanceTheBooks.Service
 {
-    public class BalanceService
+    public class BalanceService : IBalanceService
     {
-        private Dictionary<long, Bank> _banks;
+        Dictionary<long, Bank> _banks;
         Dictionary<long, Facility> _facilities;
         List<Covenant> _covenants;
         IBalanceRepository _repository;
@@ -38,9 +36,7 @@ namespace BalanceTheBooks.Service
                 var matchCreditFacilities = getMatchingCreditFacilities(matchCovenents);
 
                 var filteredCrediFacilities = getFilteredCreditFacilities(matchCreditFacilities, loanData);
-                var bestmatch = matchFacility(filteredCrediFacilities, loanData);
-
-                //_repository.Save(loanData);
+                var bestmatch = matchFacility(filteredCrediFacilities, loanData);          
             }
             catch(Exception)
             {
