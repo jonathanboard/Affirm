@@ -26,16 +26,7 @@ namespace BalanceTheBooks.Service.Repository
             csvReader = new CsvReader(reader);
 
             writer.WriteLine(ASSIGNED_LOAN_HEADER);                                                    
-        }
-
-        public void Dispose()
-        {
-            csvReader.Dispose();
-            reader.Close();
-            writer.Close();
-            reader.Dispose();
-            writer.Dispose();
-        }
+        }       
 
         public void SaveLoan(Loan loanData)
         {
@@ -70,6 +61,15 @@ namespace BalanceTheBooks.Service.Repository
 
            return null; 
         }
-   
+
+        public void Dispose()
+        {
+            csvReader.Dispose();
+            reader.Close();
+            writer.Close();
+            reader.Dispose();
+            writer.Dispose();
+        }
+
     }
 }
