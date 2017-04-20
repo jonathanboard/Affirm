@@ -1,6 +1,8 @@
-﻿using BalanceTheBooks.Service.Repository;
+﻿using System;
+using BalanceTheBooks.Service.Repository;
 using System.Configuration;
 using BalanceTheBooks.Service.Model;
+using System.Net;
 
 namespace BalanceTheBooks.Service
 {
@@ -25,9 +27,18 @@ namespace BalanceTheBooks.Service
             return _repository.GetNextLoan();
         }
 
-        public void Save(Loan loanData)
+        public HttpStatusCode Save(Loan loanData)
         {
-            _repository.SaveLoan(loanData);
+            try
+            {
+                _repository.SaveLoan(loanData);
+            }
+            catch (Exception)
+            {
+                return HttpStatusCode.InternalServerError;
+            }
+
+            return HttpStatusCode.OK;
         }
     }
 }

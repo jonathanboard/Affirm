@@ -38,7 +38,6 @@ namespace BalanceTheBooks.Service.Repository
         {
             if(csvReader.Read())
             {
-                //interest_rate,amount,id,default_likelihood,state
                 var record = csvReader.CurrentRecord;
                 float interestRate=  0.0f;
                 int amount = 0;

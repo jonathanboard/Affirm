@@ -7,8 +7,8 @@ namespace BalanceTheBooks.Console
     {
         static void Main(string[] args)
         {
-            BalanceService balanceService = new BalanceService();
-            LoanService loanService = new LoanService();
+            IBalanceService balanceService = new BalanceService();
+            ILoanService loanService = new LoanService();
 
             var loan = loanService.GetNextLoan();
 
